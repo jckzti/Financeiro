@@ -1,0 +1,91 @@
+﻿@model Entities.Entidades.ItemCompra
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Deletar Compra</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Realmente você desejá deletar a Compra
+        </p>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                    @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+            @*<div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Valor) : </label>
+                    @Html.DisplayFor(model => model.Valor, new { @class = "form-control" })
+                </div>
+            </div>*@
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataAlteracao) : </label>
+                    @Html.DisplayFor(model => model.DataAlteracao, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataCompra) : </label>
+                    @Html.DisplayFor(model => model.DataCompra, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataCadastro) : </label>
+                    @Html.DisplayFor(model => model.DataCadastro, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Comprado)</label>
+
+                    <div class="col-md-2">
+                        <label class="MeuInput">
+                            @if (Model.Comprado)
+                            {
+                                <input type="checkbox" asp-for="Comprado" checked />
+                            }
+                            else
+                            {
+                                <input type="checkbox" asp-for="Comprado" />
+                            }
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Voltar para Lista</a>
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<script src="~/js/itemCompra.js"></script>

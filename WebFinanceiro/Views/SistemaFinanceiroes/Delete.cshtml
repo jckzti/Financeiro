@@ -1,0 +1,41 @@
+﻿@model Entities.Entidades.SistemaFinanceiro
+<!-- EXCLUIR ISSO, PARECE QUE NÃO É USADO EM NADA -->
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Deletar Despesa</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Realmente você desejá deletar a Despesa?
+        </p>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                    @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Voltar para Lista</a>
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<script src="~/js/sistemaFinanceiro.js"></script>

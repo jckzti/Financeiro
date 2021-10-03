@@ -1,0 +1,164 @@
+﻿@model Entities.Entidades.Compra
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Edição da Compra</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Edição da Compra
+        </p>
+
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Edit">
+            <input asp-for="Id" type="hidden" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Id) : </label>
+                        @Html.DisplayFor(model => model.Id, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="Nome"></label>
+                        <input asp-for="Nome" class="form-control" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+
+                        <label class="bmd-label-floating" asp-for="IdCategoria"></label>
+                        <select asp-for="IdCategoria" class="form-control" asp-items="ViewBag.IdCategoria"></select>
+                        <span asp-validation-for="IdCategoria" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DataCadastro" class="control-label"></label>
+                        <input asp-for="DataCadastro" type="datetime-local" class="form-control" readonly />
+                        @*<span asp-validation-for="DataCadastro" class="text-danger"></span>*@
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="DataAlteracao" class="control-label"></label>
+                        <input asp-for="DataAlteracao" type="datetime-local" class="form-control" readonly />
+                        @*<span asp-validation-for="DataAlteracao" class="text-danger"></span>*@
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+            <div>
+
+                <a asp-action="Index">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+@if (Model.Id > 0)
+{
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <span class="nav-tabs-title">Itens da Compra</span>
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#profile" data-toggle="tab">
+                                        <i class="material-icons">code</i> Itens
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        @*<input type="button" id="btnIncluirItem" value="Incluir Novo Item" class="btn btn-primary" />*@
+
+                        <div class="form-group" id="IncluirItem">
+                            <label class="bmd-label-floating">Descrição</label>
+                            <input id="Descricao" class="form-control" />
+                            <span id="mensagemerro" class="text-danger"></span>
+                            <br />
+
+                            <input type="button" id="btnSalvar" value="Adicionar" class="btn btn-primary" />
+                            <input type="button" id="btnCancelar" value="Cancelar" class="btn btn-primary" />
+                            <br />
+
+                        </div>
+
+                    </div>
+
+                    <div class="table">
+                        <input type="button" id="btnAtualizar" value="Atualizar" class="btn btn-primary" />
+                        <table id="tabelaItens" class="table">
+
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Comprado
+                                    </th>
+                                    <th>
+                                        Descrição
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dadosTabelaItem"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<link href="~/css/StyleCheckBox.css" rel="stylesheet" />
+<script src="~/assets/js/core/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
+
+<script src="~/js/compra.js"></script>

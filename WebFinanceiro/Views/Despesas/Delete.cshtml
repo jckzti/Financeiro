@@ -1,0 +1,131 @@
+﻿@model Entities.Entidades.Despesa
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Deletar Despesa</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Você realmente deseja excluir a despesa?
+        </p>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Valor) : </label>
+                    @Html.DisplayFor(model => model.Valor, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Mes) : </label>
+                    @Html.DisplayFor(model => model.Mes, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Ano) : </label>
+                    @Html.DisplayFor(model => model.Ano, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataCadastro) : </label>
+                    @Html.DisplayFor(model => model.DataCadastro, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataAlteracao) : </label>                    
+                    @Html.DisplayFor(model => model.DataAlteracao, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataPagamento) : </label>
+                    <label class="form-control">@Model.getDataPagamento()</label>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataVencimento) : </label>
+                    @Html.DisplayFor(model => model.DataVencimento, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Pago) : </label>
+                    @*@Html.DisplayFor(model => model.DataPagamento, new { @class = "form-control" })*@
+                    @*@if (Model.Pago)
+        {
+            <span>Sim</span>
+        }
+        else
+        {
+            <span>Não</span>
+        }*@
+                    <div class="col-md-2">
+                        <label class="MeuInput">
+                            @if (Model.Pago)
+                            {
+                                <input type="checkbox" asp-for="Pago" checked />
+                            }
+                            else
+                            {
+                                <input type="checkbox" asp-for="Pago" />
+                            }
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Categoria) : </label>
+                    @Html.DisplayFor(model => model.Categoria.Nome, new { @class = "form-control" })
+
+
+                    @*@Html.DisplayNameFor(model => model.Categoria)
+
+
+                    @Html.DisplayFor(model => model.Categoria.Id)*@
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                    @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Confirma exclusão" class="btn btn-danger" /> |
+            <a asp-action="Index">Voltar para Lista</a>
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<script src="~/js/despesa.js"></script>

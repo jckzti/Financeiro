@@ -1,0 +1,59 @@
+﻿@model Entities.Entidades.Compra
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Deletar Compra</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Realmente você desejá deletar a Compra
+        </p>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                    @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataAlteracao) : </label>
+                    @Html.DisplayFor(model => model.DataAlteracao, new { @class = "form-control" })
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataCadastro) : </label>
+                    @Html.DisplayFor(model => model.DataCadastro, new { @class = "form-control" })
+                </div>
+            </div>
+
+        </div>
+
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Voltar para Lista</a>
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<script src="~/js/compra.js"></script>

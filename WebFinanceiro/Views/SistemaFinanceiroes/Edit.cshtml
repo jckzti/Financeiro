@@ -1,0 +1,147 @@
+﻿@model Entities.Entidades.SistemaFinanceiro
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Edição do Sistema Financeiro</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Edição do Sistema Financeiro
+        </p>
+
+    </div>
+
+    <div class="card-body">
+        <form asp-action="Edit">
+            <input asp-for="Id" type="hidden" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Id) : </label>
+                        @Html.DisplayFor(model => model.Id, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="Nome"></label>
+                        <input asp-for="Nome" class="form-control" maxlength="50" />
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="Mes"></label>
+                        <input asp-for="Mes" type="number" class="form-control" maxlength="2" />
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="Ano"></label>
+                        <input asp-for="Ano" type="number" class="form-control" maxlength="4" />
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="DiaFechamento"></label>
+                        <input asp-for="DiaFechamento" type="number" class="form-control" maxlength="2" readonly />Sistema só trabalha com dia 1
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.GerarCopiaDespesa)? </label>
+                            <input class="form-check-input" asp-for="GerarCopiaDespesa" type="checkbox">
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="MesCopia"></label>
+                        <input asp-for="MesCopia" type="number" class="form-control" maxlength="2" />
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating" asp-for="AnoCopia"></label>
+                        <input asp-for="AnoCopia" type="number" class="form-control" maxlength="4" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+            <div>
+
+                <a asp-action="Index">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                        <span class="nav-tabs-title">Opções</span>
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#profile" data-toggle="tab">
+                                    <i class="material-icons">code</i> Usuários do Sistema
+                                    <div class="ripple-container"></div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                        <table class="table">
+                            <tbody id="tabelaUsuario"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/assets/js/core/jquery.min.js"></script>*@
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/sistemaFinanceiro.js"></script>

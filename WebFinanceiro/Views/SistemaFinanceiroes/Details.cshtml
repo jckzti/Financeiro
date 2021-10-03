@@ -1,0 +1,106 @@
+﻿@model Entities.Entidades.SistemaFinanceiro
+
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Detalhes do Sistema Financeiro</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Visualização dos detelhes do Sistema Financeiro
+        </p>
+
+    </div>
+
+    <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Id) : </label>
+                        @Html.DisplayFor(model => model.Id, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                        @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Mes) : </label>
+                        @Html.DisplayFor(model => model.Mes, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Ano) : </label>
+                        @Html.DisplayFor(model => model.Ano, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DiaFechamento) : </label>
+                        @Html.DisplayFor(model => model.DiaFechamento, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.GerarCopiaDespesa) : </label>
+                        @if (Model.GerarCopiaDespesa)
+                        {
+                            <span>Sim</span>
+                        }
+                        else
+                        {
+                            <span>Não</span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.MesCopia) : </label>
+                        @Html.DisplayFor(model => model.MesCopia, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.AnoCopia) : </label>
+                        @Html.DisplayFor(model => model.AnoCopia, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) /
+                <a asp-action="Index">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="~/js/sistemaFinanceiro.js"></script>

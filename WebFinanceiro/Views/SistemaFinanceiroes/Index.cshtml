@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Entities.Entidades.SistemaFinanceiro>
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Sistemas Financeiros</h4>
+                        @*<p class="card-category"> Aqui estão seus sistemas de finanças</p>*@
+                        <p class="card-category">
+                            <i class="material-icons">class</i>
+                            <a style="color:white" asp-action="Create">Criar um Sistema Financeiro</a>
+                        </p>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>Ações</th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nome)
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                                @*|@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nome)
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/sistemaFinanceiro.js"></script>

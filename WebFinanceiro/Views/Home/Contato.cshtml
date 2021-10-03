@@ -1,0 +1,99 @@
+﻿
+
+@model Entities.Entidades.Categoria
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Contatos e Informações</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Contatos e Informações
+        </p>
+
+    </div>
+
+    <div class="card-body">
+        <form>
+
+            @*<div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Id) : </label>
+                            @Html.DisplayFor(model => model.Id, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating"> Sistema de Gerenciamento Financeiro totalmente gratuido código aberto disponível para download</label> <a target="_blank" href="https://www.youtube.com/watch?v=MEOkebRR6uE&t "> Canal Valdir Youtube Sistema de Gerenciamento Financeiro DDD ASP.NET-CORE</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating"> Vejá o Vídeo de como Utilizar no </label> <a target="_blank" href="https://www.youtube.com/watch?v=MEOkebRR6uE&t "> Canal Valdir Youtube Sistema de Gerenciamento Financeiro DDD ASP.NET-CORE</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating"> Email para Contato: </label><a target="_blank" href="valdirferreira2006@gmail.com"> valdirferreira2006@gmail.com</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating"> Canal Youtube: </label> <a target="_blank" href="https://www.youtube.com/user/valdirferreira20/about?view_as=subscriber "> Canal Valdir Youtube</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating"> Versão do Sistema 1.0.5* 13/05/2020</label>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label style="background-color:darkgoldenrod; color:white" class="bmd-label-floating">*Correção de Bugs 13/05/2020</label>
+                        @*<label style="background-color:green; color:white" class="bmd-label-floating">*Liberação da Geração de PDF e geração de Excel das despesas em desenvolvimento 19/04/2020</label>
+                        <label style="background-color:gray; color:white" class="bmd-label-floating">***Blocos de Anotação em desenvolvimento*** </label>*@
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+
+                <a asp-controller="Home" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="~/js/contato.js"></script>

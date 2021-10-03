@@ -1,0 +1,146 @@
+﻿@model Entities.Entidades.Despesa
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Detalhes da Despesa</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Visualização dos detelhes da Despesa
+        </p>
+
+    </div>
+
+    <div class="card-body">
+        <form>
+
+            <input asp-for="DespesaAntrasada" type="hidden" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Valor) : </label>
+                        @Html.DisplayFor(model => model.Valor, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Mes) : </label>
+                        @Html.DisplayFor(model => model.Mes, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Ano) : </label>
+                        @Html.DisplayFor(model => model.Ano, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataCadastro) : </label>
+                        @Html.DisplayFor(model => model.DataCadastro, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataAlteracao) : </label>
+                        @Html.DisplayFor(model => model.DataAlteracao, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataPagamento) : </label>
+                        @Html.DisplayFor(model => model.DataPagamento, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataVencimento) : </label>
+                        @Html.DisplayFor(model => model.DataVencimento, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Pago) : </label>
+                        @*@Html.DisplayFor(model => model.DataPagamento, new { @class = "form-control" })*@
+                        @*@if (Model.Pago)
+                            {
+                                <span>Sim</span>
+                            }
+                            else
+                            {
+                                <span>Não</span>
+                            }*@
+
+                        <div class="col-md-2">
+                            <label class="MeuInput">
+                                @if (Model.Pago)
+                                {
+                                    <input type="checkbox" asp-for="Pago" checked disabled />
+                                }
+                                else
+                                {
+                                    <input type="checkbox" asp-for="Pago" disabled />
+                                }
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Categoria) : </label>
+                        @Html.DisplayFor(model => model.Categoria.Nome, new { @class = "form-control" })
+
+
+                        @*@Html.DisplayNameFor(model => model.Categoria)
+
+
+                            @Html.DisplayFor(model => model.Categoria.Id)*@
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                        @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+
+
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) /
+                @if (Model.DespesaAntrasada)
+                {
+                    <a asp-area="" asp-controller="Despesas" asp-action="DespesasAtrasadas">
+                        Voltar para Lista
+                    </a>
+
+                }
+                else
+                {
+                    <a asp-action="Index">Voltar para Lista</a>
+                }
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script src="~/js/despesa.js"></script>
+<link href="~/css/StyleCheckBox.css" rel="stylesheet" />

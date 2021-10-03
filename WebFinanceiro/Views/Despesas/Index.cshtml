@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Entities.Entidades.Despesa>
+
+
+
+
+<div class="content-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Despesas</h4>
+                        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+                        <p class="card-category">
+                            <i class="material-icons">class</i>
+                            <a asp-action="Create">Criar uma nova Despesa</a>
+
+                        </p>
+
+                        @*<div id="btnExport" >*@
+                            @*<i class="material-icons">print</i>
+                            <a style="color:white" asp-action="#">Gerar Excel</a>*@
+                        @*</div>*@
+
+                        @*<p id="btnExportPdf" class="card-category">
+                            <i class="material-icons">picture_as_pdf</i>
+                            <a style="color:white" asp-action="#">Gerar PDF</a>
+                        </p>*@
+
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="dvData">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>Ações</th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Pago)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nome)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Valor)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TipoDespesa)
+                                        </th>
+
+                                        @*<th>
+                                                @Html.DisplayNameFor(model => model.DataCadastro)
+                                            </th>*@
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DataVencimento)
+                                        </th>
+                                        @*<th>
+                                                @Html.DisplayNameFor(model => model.DataPagamento)
+                                            </th>*@
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" asp-route-despesaAntrasada="@item.DespesaAntrasada">Edição</a> |
+                                                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id" asp-route-despesaAntrasada="@item.DespesaAntrasada">Deletar</a>
+                                            </td>
+                                            <td>
+                                                @*@Html.DisplayFor(modelItem => item.Pago)*@
+
+
+                                                <label class="MeuInput">
+                                                    @if (item.Pago)
+                                                    {
+                                                        <input type="checkbox" checked disabled />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled />
+                                                    }
+                                                    <span class="slider round"></span>
+                                                </label>
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Nome)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Valor)
+                                            </td>
+
+                                            <td>
+                                                @if (item.TipoDespesa == Entities.Enums.EnumTipoDespesa.Contas)
+                                                {
+                                                    <span>Contas</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>Investimento</span>
+                                                }
+                                            </td>
+
+
+                                            @*<td>
+                                                    @Html.DisplayFor(modelItem => item.DataCadastro)
+                                                </td>*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DataVencimento)
+                                            </td>
+                                            @*<td>
+                                                    @Html.DisplayFor(modelItem => item.DataPagamento)
+                                                </td>*@
+
+
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="~/assets/js/core/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/assets/js/plugins/jquery.dataTables.min.js"></script>
+
+
+
+<script src="~/js/despesa.js"></script>
+<link href="~/css/StyleCheckBox.css" rel="stylesheet" />

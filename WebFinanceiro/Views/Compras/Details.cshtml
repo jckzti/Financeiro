@@ -1,0 +1,78 @@
+﻿@model Entities.Entidades.Compra
+
+
+
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title ">Detalhes da Categoria</h4>
+        @*<p class="card-category"> Aqui estão suas categorias</p>*@
+        <p class="card-category">
+            <i class="material-icons">class</i>
+            Visualização dos detelhes da Categoria
+        </p>
+
+    </div>
+
+    <div class="card-body">
+        <form>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">    @Html.DisplayNameFor(model => model.Id) : </label>
+                        @Html.DisplayFor(model => model.Id, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Nome) : </label>
+                        @Html.DisplayFor(model => model.Nome, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataAlteracao) : </label>
+                        @Html.DisplayFor(model => model.DataAlteracao, new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.DataCadastro) : </label>
+                        @Html.DisplayFor(model => model.DataCadastro, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">@Html.DisplayNameFor(model => model.Categoria) : </label>
+                        @Html.DisplayFor(model => model.Categoria.Nome, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div>
+                @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) /
+                <a asp-action="Index">Voltar para Lista</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script src="~/js/compra.js"></script>
